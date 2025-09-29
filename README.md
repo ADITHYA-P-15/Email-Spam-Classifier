@@ -56,16 +56,20 @@ The app is built with **Python**, **Streamlit**, and **scikit-learn**, and provi
 ## **Project Pipeline**
 
 1. **Data Loading:** Load the `spam.csv` dataset
-2. **Preprocessing:**
+2.** Data Cleaning:**
+Remove missing or null values
+Remove duplicates
+Remove unnecessary columns
+3. **Preprocessing:**
 
    * Lowercase text
    * Remove punctuation
    * Tokenize text
    * Remove stopwords
    * Apply stemming
-3. **Feature Extraction:** Convert text messages to **TF-IDF vectors**
-4. **Model Training:** Train a **Naive Bayes classifier** on the vectorized dataset
-5. **Saving Model & Vectorizer:** Use `pickle` to save the trained model and TF-IDF vectorizer
+4. **Feature Extraction:** Convert text messages to **TF-IDF vectors**
+5. **Model Training:** Train a **Naive Bayes classifier** on the vectorized dataset
+6. **Saving Model & Vectorizer:** Use `pickle` to save the trained model and TF-IDF vectorizer
 
 ---
 
