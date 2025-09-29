@@ -56,7 +56,7 @@ The app is built with **Python**, **Streamlit**, and **scikit-learn**, and provi
 ## **Project Pipeline**
 
 1. **Data Loading:** Load the `spam.csv` dataset
-2.** Data Cleaning:**
+2. **Data Cleaning:**
 Remove missing or null values
 Remove duplicates
 Remove unnecessary columns
