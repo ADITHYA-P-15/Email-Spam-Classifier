@@ -1,54 +1,80 @@
-## Email/SMS Spam Classifier:
+# Email/SMS Spam Classifier
 
-**Project Overview**
-This project is a machine learning-based web application that classifies messages as Spam or Not Spam. It demonstrates how NLP preprocessing combined with a Naive Bayes classifier can effectively detect spam in emails or SMS messages.
-The app is built with Python, Streamlit, and scikit-learn, and provides a simple web interface for end users.
+## **Project Overview**
 
-**Dataset:**
-Dataset used: spam.csv (available on Kaggle)
+This project is a **machine learning-based web application** that classifies messages as **Spam** or **Not Spam**. It demonstrates how **NLP preprocessing** combined with a **Naive Bayes classifier** can effectively detect spam in emails or SMS messages.
 
-**Contents:**
-label: Indicates whether the message is spam or ham (not spam)
-message: The text of the SMS/email
+The app is built with **Python**, **Streamlit**, and **scikit-learn**, and provides a simple **web interface** for end users.
 
-**Preprocessing:**
-Lowercasing
-Tokenization using NLTK
-Stopword removal
-Stemming using PorterStemmer
+---
 
-**Model:**
-Algorithm: Naive Bayes (MultinomialNB)
-Vectorization: TF-IDF (Term Frequency–Inverse Document Frequency)
+## **Dataset**
 
-**Pipeline:**
-Preprocess the message text
-Convert to TF-IDF vector
-Predict using Naive Bayes classifier
+* **Dataset used:** `spam.csv` (available on [Kaggle](https://www.kaggle.com/uciml/sms-spam-collection-dataset))
 
-**Tools & Technologies:**
-Jupyter Notebook – for initial data exploration, preprocessing, and model training
-PyCharm – for creating a Python pipeline and preparing the project for deployment
-Python Libraries:
-pandas – for data handling
-nltk – for text preprocessing (tokenization, stopwords, stemming)
-scikit-learn – for TF-IDF vectorization and Naive Bayes classifier
-pickle – for saving the trained model and vectorizer
-Streamlit – for building a web interface and deploying the app locally
+* **Contents:**
 
-**Project Pipeline:**
-Data Loading: Load spam.csv dataset
-Preprocessing:
-Lowercase text
-Remove punctuation
-Tokenize text
-Remove stopwords
-Apply stemming
-Feature Extraction: Convert text messages to TF-IDF vectors
-Model Training: Train a Naive Bayes classifier on the vectorized dataset
-Saving Model & Vectorizer: Use pickle to save trained model and TF-IDF vectorizer
+  * `label`: Indicates whether the message is **spam** or **ham** (not spam)
+  * `message`: The text of the SMS/email
 
-**Web App:**
-Built using Streamlit
-Accepts user input for a message
-Preprocesses input and predicts Spam/Not Spam
+* **Preprocessing applied:**
+
+  * Lowercasing
+  * Tokenization using **NLTK**
+  * Stopword removal
+  * Stemming using **PorterStemmer**
+
+---
+
+## **Model**
+
+* **Algorithm:** Naive Bayes (MultinomialNB)
+* **Vectorization:** TF-IDF (Term Frequency–Inverse Document Frequency)
+
+### **Pipeline**
+
+1. Preprocess the message text
+2. Convert to TF-IDF vector
+3. Predict using the Naive Bayes classifier
+
+---
+
+## **Tools & Technologies**
+
+* **Jupyter Notebook** – for initial data exploration, preprocessing, and model training
+* **PyCharm** – for creating a Python pipeline and preparing the project for deployment
+* **Python Libraries:**
+
+  * `pandas` – for data handling
+  * `nltk` – for text preprocessing (tokenization, stopwords, stemming)
+  * `scikit-learn` – for TF-IDF vectorization and Naive Bayes classifier
+  * `pickle` – for saving the trained model and vectorizer
+* **Streamlit** – for building a web interface and deploying the app locally
+
+---
+
+## **Project Pipeline**
+
+1. **Data Loading:** Load the `spam.csv` dataset
+2. **Preprocessing:**
+
+   * Lowercase text
+   * Remove punctuation
+   * Tokenize text
+   * Remove stopwords
+   * Apply stemming
+3. **Feature Extraction:** Convert text messages to **TF-IDF vectors**
+4. **Model Training:** Train a **Naive Bayes classifier** on the vectorized dataset
+5. **Saving Model & Vectorizer:** Use `pickle` to save the trained model and TF-IDF vectorizer
+
+---
+
+## **Web App**
+
+* Built using **Streamlit**
+* Accepts **user input** for a message
+* Preprocesses the input and predicts **Spam/Not Spam**
+
+---
+
+
