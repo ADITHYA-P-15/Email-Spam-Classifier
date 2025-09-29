@@ -4,17 +4,26 @@ import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+import shutil
 
 # -------------------------------
-# NLTK setup (Streamlit Cloud safe)
+# Cleanup old NLTK cache (fixes punkt_tab issue)
 # -------------------------------
-# Force download of correct resources only if missing
+shutil.rmtree("/home/appuser/nltk_data", ignore_errors=True)
+shutil.rmtree("/home/adminuser/venv/nltk_data", ignore_errors=True)
+
+# -------------------------------
+# Download required NLTK resources
+# -------------------------------
 for resource in ["punkt", "stopwords"]:
     try:
         nltk.data.find(f"{'tokenizers' if resource=='punkt' else 'corpora'}/{resource}")
     except LookupError:
-        nltk.download(resource)
+        nltk.download(resource, quiet=True)
 
+# -------------------------------
+# Initialize stemmer
+# -------------------------------
 ps = PorterStemmer()
 
 # -------------------------------
@@ -22,13 +31,13 @@ ps = PorterStemmer()
 # -------------------------------
 def transform_text(text):
     text = text.lower()
-    tokens = nltk.word_tokenize(text)  # Uses correct 'punkt'
+    tokens = nltk.word_tokenize(text)  # Correct punkt tokenizer
 
     # Keep only alphanumeric tokens
     tokens = [i for i in tokens if i.isalnum()]
 
     # Remove stopwords and punctuation
-    tokens = [i for i in tokens if i not in stopwords.words('english') and i not in string.punctuation]
+    tokens = [i for i in tokens if i not in stopwords.words("english") and i not in string.punctuation]
 
     # Stem the tokens
     tokens = [ps.stem(i) for i in tokens]
@@ -49,11 +58,11 @@ with open("model.pkl", "rb") as f:
 # -------------------------------
 st.title("Email/SMS Spam Classifier")
 
-input_sms = st.text_area("Enter the message here:")
+input_sms = st.text_area("Enter your message here:")
 
 if st.button("Predict"):
     if input_sms.strip() == "":
-        st.warning("Please enter a message first.")
+        st.warning("⚠️ Please enter a message first.")
     else:
         transformed_sms = transform_text(input_sms)
         vector_input = tfidf.transform([transformed_sms])
