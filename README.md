@@ -81,4 +81,9 @@ The app is built with **Python**, **Streamlit**, and **scikit-learn**, and provi
 
 ---
 
+## Author 
+
+* Adithya Prasad
+* MIT Manipal
+* B.Tech, Computer and Communication Engineering
 
